@@ -58,7 +58,7 @@ def scene_label(code: int) -> str:
 def leakage_status_label(value: int) -> str:
     """Return a concise global leakage-protection status."""
     if value == 0:
-        return "Deaktiviert"
+        return "Aktiv"
     active = [name for bit, name in LEAKAGE_STATUS_BITS.items() if value & bit]
     return "Aktiv" if not active else f"Aktiv – {', '.join(active)}"
 
