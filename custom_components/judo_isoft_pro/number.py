@@ -30,12 +30,12 @@ async def async_setup_entry(
     async_add_entities(
         [
             JudoWritableNumber(
-                coordinator, entry, "Salzmangel-Warnschwelle", CMD_SALT_WARNING, 0, 255, 1,
+                coordinator, entry, "Salzmangel-Warnschwelle", CMD_SALT_WARNING, 0, 30, 1,
                 "d", "mdi:alert-circle-outline", data_bytes=1,
                 entity_key="salzmangel_warnschwelle", unique_suffix="57_number",
             ),
             JudoWritableNumber(
-                coordinator, entry, "Wunschwasserhärte", CMD_HARDNESS, 0, 255, 1,
+                coordinator, entry, "Wunschwasserhärte", CMD_HARDNESS, 0, 30, 1,
                 None, "mdi:water-opacity", data_bytes=2,
                 entity_key="wunschwasserharte", unique_suffix="51_number",
                 write_command=CMD_HARDNESS_WRITE,
