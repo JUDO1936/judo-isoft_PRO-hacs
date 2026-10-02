@@ -126,12 +126,10 @@ DEVICE_TYPES = {
 
 HARDNESS_UNIT_OPTIONS = {
     "0": "°dH",
-    "1": "°eH",
     "2": "°fH",
-    "3": "gpg",
     "4": "ppm",
     "5": "mmol",
-    "6": "mval",
+  
 }
 
 
