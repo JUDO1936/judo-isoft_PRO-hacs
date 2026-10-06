@@ -9,10 +9,10 @@ views:
         show_header_toggle: false
         entities:
           - entity: sensor.judo_i_soft_pro_geratestatus
-            name: Status
+            name: Geräte Status
             icon: mdi:lan-connect
           - entity: sensor.judo_i_soft_pro_geratetyp
-            name: Modell
+            name: Modelltyp
             icon: mdi:chip
           - entity: sensor.judo_i_soft_pro_software_version
             name: Firmware-Version
@@ -65,14 +65,24 @@ views:
             columns: 2
             square: false
             cards:
-              - type: tile
+              - type: button
                 entity: button.judo_i_soft_pro_szene_aktivieren
                 name: Szene starten
                 icon: mdi:play-circle
-              - type: tile
+                show_name: true
+                show_icon: true
+                icon_height: 60px
+                tap_action:
+                  action: call-service
+              - type: button
                 entity: button.judo_i_soft_pro_regeneration_starten
                 name: Regeneration
                 icon: mdi:autorenew
+                show_name: true
+                show_icon: true
+                icon_height: 60px
+                tap_action:
+                  action: call-service
       - type: vertical-stack
         cards:
           - type: entities
@@ -100,14 +110,24 @@ views:
             columns: 2
             square: false
             cards:
-              - type: tile
+              - type: button
                 entity: button.judo_i_soft_pro_leckageschutz_schliessen
                 name: Leckageschutz schließen
                 icon: mdi:valve-closed
-              - type: tile
+                show_name: true
+                show_icon: true
+                icon_height: 60px
+                tap_action:
+                  action: call-service
+              - type: button
                 entity: button.judo_i_soft_pro_leckageschutz_offnen
                 name: Leckageschutz öffnen
                 icon: mdi:valve-open
+                show_name: true
+                show_icon: true
+                icon_height: 60px
+                tap_action:
+                  action: call-service
       - type: entities
         title: Salzvorrat & Warnung
         icon: mdi:salt-shaker
@@ -133,10 +153,15 @@ views:
               - entity: number.judo_i_soft_pro_urlaubstage
                 name: Urlaubstage festlegen
                 icon: mdi:calendar-range
-          - type: tile
+          - type: button
             entity: button.judo_i_soft_pro_urlaubsmodus_starten
             name: Urlaubsmodus aktivieren
             icon: mdi:beach
+            show_name: true
+            show_icon: true
+            icon_height: 60px
+            tap_action:
+              action: call-service
       - type: history-graph
         title: Verlauf (7 Tage)
         hours_to_show: 168
