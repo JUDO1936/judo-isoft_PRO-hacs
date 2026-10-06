@@ -949,24 +949,6 @@ Die Kommunikation wird zentral kontrolliert.
 
 ---
 
-# Entfernte bzw. bewusst nicht bereitgestellte Entitäten
-
-Die aktuelle Version konzentriert sich auf tatsächlich benötigte Werte.
-
-Nicht mehr als eigene öffentliche Entities vorgesehen sind unter anderem:
-
-- separater Verbindungsstatus-Sensor
-- Inbetriebnahmedatum
-- rohe 6900-Hex-Daten
-- einzelne rohe 6900-Byte-Sensoren
-- generische 6900-16-Bit-Sensoren
-- generische 6900-32-Bit-Sensoren
-- künstlicher Leckageschutz-EIN/AUS-Switch
-
-Stattdessen werden die relevanten Informationen sinnvoll dekodiert und als nutzbare Home-Assistant-Entities bereitgestellt.
-
----
-
 # Software-Version
 
 Die JUDO-Software-Version wird aus den drei vom Gerät gelieferten Bytes dekodiert.
@@ -999,9 +981,6 @@ Die Verbindung erfolgt über:
 Home Assistant
       |
       | LAN
-      v
-JUDO Connectivity
-      |
       v
 JUDO i-soft PRO / PRO L
 ```
@@ -1085,7 +1064,6 @@ Prüfen:
 - Netzwerkverbindung
 - REST-Schnittstelle des JUDO-Gerätes
 - Firewall
-- Connectivity-Modul
 
 ## Sensor bleibt auf letztem Wert
 
@@ -1264,7 +1242,6 @@ Die genaue Verfügbarkeit einzelner Funktionen kann von:
 
 - Gerätemodell
 - Firmware
-- Connectivity-Modul
 - aktivierter REST-Schnittstelle
 - Softwarestand
 
