@@ -501,12 +501,10 @@ Die JUDO-Dokumentation definiert folgende Einheiten:
 | Code | Einheit |
 |---:|---|
 | `0` | °dH |
-| `1` | °eH |
 | `2` | °fH |
-| `3` | gpg |
 | `4` | ppm |
 | `5` | mmol |
-| `6` | mval |
+
 
 Die Einheit kann über ein Home-Assistant-`select` ausgewählt werden.
 
