@@ -108,7 +108,6 @@ Die folgenden Einstellungen werden als Home-Assistant-`number`-Entities bereitge
 ## Salz
 
 - Salzvorrat anzeigen
-- Salzvorrat einstellen
 - Salzreichweite anzeigen
 - Salzmangel-Warnschwelle einstellen
 
