@@ -17,7 +17,7 @@
 
 Die **JUDO i-soft PRO / PRO L Integration** ermöglicht die lokale Einbindung von JUDO i-soft Enthärtungsanlagen in [Home Assistant](https://www.home-assistant.io/).
 
-Die Kommunikation erfolgt direkt über die lokale REST-Schnittstelle des Connectivity-Moduls.
+Die Kommunikation erfolgt direkt über die lokale REST-Schnittstelle.
 
 Es wird keine Cloud-Verbindung benötigt.
 
