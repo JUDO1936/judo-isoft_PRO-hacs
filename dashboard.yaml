@@ -2,44 +2,138 @@ views:
   - title: i-soft PRO
     path: isoft-pro
     icon: mdi:water-softener
-    cards:
-      - type: entities
-        title: Anlage & Infodaten
-        icon: mdi:information-outline
-        show_header_toggle: false
-        entities:
-          - entity: sensor.judo_i_soft_pro_geratestatus
-            name: Geräte Status
-            icon: mdi:lan-connect
-          - entity: sensor.judo_i_soft_pro_geratetyp
-            name: Modelltyp
-            icon: mdi:chip
-          - entity: sensor.judo_i_soft_pro_software_version
-            name: Firmware-Version
-            icon: mdi:numeric
-      - type: entities
-        title: Wasser & Verbrauch
-        icon: mdi:water
-        show_header_toggle: false
-        entities:
-          - entity: sensor.judo_i_soft_pro_gesamtwassermenge
-            name: Gesamtwassermenge
-            icon: mdi:water
-          - entity: sensor.judo_i_soft_pro_weichwassermenge
-            name: Weichwassermenge
-            icon: mdi:water-outline
-          - type: section
-          - entity: sensor.judo_i_soft_pro_aktueller_wasserdurchfluss
-            name: Aktueller Durchfluss
-            icon: mdi:water-pump
-          - entity: sensor.judo_i_soft_pro_wassertemperatur
-            name: Wassertemperatur
-            icon: mdi:thermometer-water
-      - type: vertical-stack
+    type: sections
+    max_columns: 3
+    dense_section_placement: false
+    top_margin: false
+    sections:
+      - type: grid
         cards:
+          - type: heading
+            heading: Anlage & Infodaten
+            heading_style: title
+            icon: mdi:information-outline
           - type: entities
-            title: Wasserhärte & Szenen
+            show_header_toggle: false
+            entities:
+              - entity: sensor.judo_i_soft_pro_geratestatus
+                name: Geräte Status
+                icon: mdi:lan-connect
+              - entity: sensor.judo_i_soft_pro_geratetyp
+                name: Modelltyp
+                icon: mdi:chip
+              - entity: sensor.judo_i_soft_pro_software_version
+                name: Firmware-Version
+                icon: mdi:numeric
+          - type: heading
+            heading: Verlauf (7-Tage)
+            heading_style: title
+            icon: mdi:chart-line
+          - type: history-graph
+            hours_to_show: 168
+            show_names: true
+            logarithmic_scale: false
+            expand_legend: false
+            entities:
+              - entity: sensor.judo_i_soft_pro_gesamtwassermenge
+                name: Gesamtwasser
+              - entity: sensor.judo_i_soft_pro_weichwassermenge
+                name: Weichwasser
+              - entity: sensor.judo_i_soft_pro_aktueller_wasserdurchfluss
+                name: Durchfluss
+              - entity: sensor.judo_i_soft_pro_wassertemperatur
+                name: Temperatur
+      - type: grid
+        cards:
+          - type: heading
+            heading: Wasser & Verbrauch
+            heading_style: title
+            icon: mdi:water
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: sensor.judo_i_soft_pro_gesamtwassermenge
+                name: Gesamtwassermenge
+                icon: mdi:water
+              - entity: sensor.judo_i_soft_pro_weichwassermenge
+                name: Weichwassermenge
+                icon: mdi:water-outline
+              - type: section
+              - entity: sensor.judo_i_soft_pro_aktueller_wasserdurchfluss
+                name: Aktueller Durchfluss
+                icon: mdi:water-pump
+              - entity: sensor.judo_i_soft_pro_wassertemperatur
+                name: Wassertemperatur
+                icon: mdi:thermometer-water
+          - type: heading
+            heading: Leckageschutz & Ventile
+            heading_style: title
+            icon: mdi:shield-water
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: sensor.judo_i_soft_pro_globaler_leckageschutz
+                name: Schutz-Status
+                icon: mdi:shield-check
+              - entity: sensor.judo_i_soft_pro_leckagegrund
+                name: Letzter Leckagegrund
+                icon: mdi:alert-decagram-outline
+              - type: section
+              - entity: select.judo_i_soft_pro_max_entnahmedauer
+                name: Max. Entnahmedauer
+                icon: mdi:timer-cog
+              - entity: number.judo_i_soft_pro_max_entnahmemenge
+                name: Max. Entnahmemenge
+                icon: mdi:water-minus
+              - entity: number.judo_i_soft_pro_max_volumenstrom
+                name: Max. Volumenstrom
+                icon: mdi:speedometer
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: button
+                entity: button.judo_i_soft_pro_leckageschutz_schliessen
+                name: Leckageschutz schließen
+                icon: mdi:valve-closed
+                show_name: true
+                show_icon: true
+                icon_height: 60px
+                tap_action:
+                  action: call-service
+              - type: button
+                entity: button.judo_i_soft_pro_leckageschutz_offnen
+                name: Leckageschutz öffnen
+                icon: mdi:valve-open
+                show_name: true
+                show_icon: true
+                icon_height: 60px
+                tap_action:
+                  action: call-service
+          - type: heading
+            heading: Salzvorrat & Warnung
+            heading_style: title
+            icon: mdi:salt-shaker
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: sensor.judo_i_soft_pro_salzgewicht
+                name: Aktuelles Salzgewicht
+                icon: mdi:sack
+              - entity: sensor.judo_i_soft_pro_salzreichweite
+                name: Verbleibende Reichweite
+                icon: mdi:calendar-clock
+              - type: section
+              - entity: number.judo_i_soft_pro_salzmangel_warnschwelle
+                name: Warnschwelle (Tage)
+                icon: mdi:alert-circle-outline
+      - type: grid
+        cards:
+          - type: heading
+            heading: Wasserhärte & Szenen
+            heading_style: title
             icon: mdi:tune-vertical
+          - type: entities
             show_header_toggle: false
             entities:
               - entity: number.judo_i_soft_pro_wunschwasserharte
@@ -83,71 +177,11 @@ views:
                 icon_height: 60px
                 tap_action:
                   action: call-service
-      - type: vertical-stack
-        cards:
-          - type: entities
-            title: Leckageschutz & Ventile
-            icon: mdi:shield-water
-            show_header_toggle: false
-            entities:
-              - entity: sensor.judo_i_soft_pro_globaler_leckageschutz
-                name: Schutz-Status
-                icon: mdi:shield-check
-              - entity: sensor.judo_i_soft_pro_leckagegrund
-                name: Letzter Leckagegrund
-                icon: mdi:alert-decagram-outline
-              - type: section
-              - entity: select.judo_i_soft_pro_max_entnahmedauer
-                name: Max. Entnahmedauer
-                icon: mdi:timer-cog
-              - entity: number.judo_i_soft_pro_max_entnahmemenge
-                name: Max. Entnahmemenge
-                icon: mdi:water-minus
-              - entity: number.judo_i_soft_pro_max_volumenstrom
-                name: Max. Volumenstrom
-                icon: mdi:speedometer
-          - type: grid
-            columns: 2
-            square: false
-            cards:
-              - type: button
-                entity: button.judo_i_soft_pro_leckageschutz_schliessen
-                name: Leckageschutz schließen
-                icon: mdi:valve-closed
-                show_name: true
-                show_icon: true
-                icon_height: 60px
-                tap_action:
-                  action: call-service
-              - type: button
-                entity: button.judo_i_soft_pro_leckageschutz_offnen
-                name: Leckageschutz öffnen
-                icon: mdi:valve-open
-                show_name: true
-                show_icon: true
-                icon_height: 60px
-                tap_action:
-                  action: call-service
-      - type: entities
-        title: Salzvorrat & Warnung
-        icon: mdi:salt-shaker
-        show_header_toggle: false
-        entities:
-          - entity: sensor.judo_i_soft_pro_salzgewicht
-            name: Aktuelles Salzgewicht
-            icon: mdi:sack
-          - entity: sensor.judo_i_soft_pro_salzreichweite
-            name: Verbleibende Reichweite
-            icon: mdi:calendar-clock
-          - type: section
-          - entity: number.judo_i_soft_pro_salzmangel_warnschwelle
-            name: Warnschwelle (Tage)
-            icon: mdi:alert-circle-outline
-      - type: vertical-stack
-        cards:
-          - type: entities
-            title: Urlaubsmodus
+          - type: heading
+            heading: Urlaubsmodus
+            heading_style: title
             icon: mdi:beach
+          - type: entities
             show_header_toggle: false
             entities:
               - entity: number.judo_i_soft_pro_urlaubstage
@@ -162,18 +196,6 @@ views:
             icon_height: 60px
             tap_action:
               action: call-service
-      - type: history-graph
-        title: Verlauf (7 Tage)
-        hours_to_show: 168
-        show_names: true
-        logarithmic_scale: false
-        expand_legend: false
-        entities:
-          - entity: sensor.judo_i_soft_pro_gesamtwassermenge
-            name: Gesamtwasser
-          - entity: sensor.judo_i_soft_pro_weichwassermenge
-            name: Weichwasser
-          - entity: sensor.judo_i_soft_pro_aktueller_wasserdurchfluss
-            name: Durchfluss
-          - entity: sensor.judo_i_soft_pro_wassertemperatur
-            name: Temperatur
+            grid_options:
+              rows: 2
+              columns: 12
