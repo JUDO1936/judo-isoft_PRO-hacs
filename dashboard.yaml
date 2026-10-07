@@ -17,7 +17,7 @@ views:
             show_header_toggle: false
             entities:
               - entity: sensor.judo_i_soft_pro_geratestatus
-                name: Geräte Status
+                name: Verbindungsstatus
                 icon: mdi:lan-connect
               - entity: sensor.judo_i_soft_pro_geratetyp
                 name: Modelltyp
@@ -73,10 +73,13 @@ views:
             show_header_toggle: false
             entities:
               - entity: sensor.judo_i_soft_pro_globaler_leckageschutz
-                name: Schutz-Status
+                name: Leckageschutz-Status
                 icon: mdi:shield-check
+              - entity: sensor.judo_i_soft_pro_leckageschutz_position
+                name: Leckageschutz Position
+                icon: mdi:valve
               - entity: sensor.judo_i_soft_pro_leckagegrund
-                name: Letzter Leckagegrund
+                name: Leckagegrund
                 icon: mdi:alert-decagram-outline
               - type: section
               - entity: select.judo_i_soft_pro_max_entnahmedauer
