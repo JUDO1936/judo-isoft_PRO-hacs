@@ -76,7 +76,7 @@ views:
                 name: Leckageschutz-Status
                 icon: mdi:shield-check
               - entity: sensor.judo_i_soft_pro_leckageschutz_position
-                name: Leckageschutz Position
+                name: Leckageschutz Ventil
                 icon: mdi:valve
               - entity: sensor.judo_i_soft_pro_leckagegrund
                 name: Leckagegrund
