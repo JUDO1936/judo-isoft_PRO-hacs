@@ -103,7 +103,10 @@ views:
                 show_icon: true
                 icon_height: 60px
                 tap_action:
-                  action: call-service
+                  action: perform-action
+                  perform_action: button.press
+                  target:
+                    entity_id: button.judo_i_soft_pro_leckageschutz_schliessen
               - type: button
                 entity: button.judo_i_soft_pro_leckageschutz_offnen
                 name: Leckageschutz öffnen
@@ -112,7 +115,10 @@ views:
                 show_icon: true
                 icon_height: 60px
                 tap_action:
-                  action: call-service
+                  action: perform-action
+                  perform_action: button.press
+                  target:
+                    entity_id: button.judo_i_soft_pro_leckageschutz_offnen
           - type: heading
             heading: Salzvorrat & Warnung
             heading_style: title
@@ -170,7 +176,10 @@ views:
                 show_icon: true
                 icon_height: 60px
                 tap_action:
-                  action: call-service
+                  action: perform-action
+                  perform_action: button.press
+                  target:
+                    entity_id: button.judo_i_soft_pro_szene_aktivieren
               - type: button
                 entity: button.judo_i_soft_pro_regeneration_starten
                 name: Regeneration
@@ -179,7 +188,10 @@ views:
                 show_icon: true
                 icon_height: 60px
                 tap_action:
-                  action: call-service
+                  action: perform-action
+                  perform_action: button.press
+                  target:
+                    entity_id: button.judo_i_soft_pro_regeneration_starten
           - type: heading
             heading: Urlaubsmodus
             heading_style: title
@@ -198,7 +210,10 @@ views:
             show_icon: true
             icon_height: 60px
             tap_action:
-              action: call-service
+              action: perform-action
+              perform_action: button.press
+              target:
+                entity_id: button.judo_i_soft_pro_urlaubsmodus_starten
             grid_options:
               rows: 2
               columns: 12
